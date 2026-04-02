@@ -1,14 +1,61 @@
-
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Change Calculator</title>
-  </head>
-  <body>
-    <!-- Write your markup here -->
+<html lang="en">
 
-    <!-- Don't forget to add your <script> tag here -->
+<head>
+  <meta charset="UTF-8">
+  <title>Change Calculator</title>
 
-  </body>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Press+Start+2P&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="original">
+
+  <div class="container box">
+
+    <h1 class="title has-text-centered">Change Calculator</h1>
+    
+    <div id="screenAmount" class="screen-display">
+      Due: $0.00<br>
+      Paid: $0.00<br>
+      Change: $0.00
+    </div>
+
+    <div class="field">
+      <label class="label">Amount Due ($)</label>
+      <input id="amount-due" class="input" type="number" step="0.01">
+    </div>
+
+    <div class="field">
+      <label class="label">Amount Received ($)</label>
+      <input id="amount-received" class="input" type="number" step="0.01">
+    </div>
+
+    <button id="calculate-change" class="button is-primary is-fullwidth">
+      Calculate Change
+    </button>
+
+    <button class="button is-light is-fullwidth mt-2" onclick="clearCalculator()">
+      Clear
+    </button>
+
+    <div class="buttons is-centered mt-4">
+      <button class="button is-link" onclick="setTheme('original')">Original</button>
+      <button class="button is-info" onclick="setTheme('nasa')">NASA</button>
+      <button class="button is-warning" onclick="setTheme('retro')">Retro</button>
+    </div>
+
+    <div id="results" class="content mt-5"></div>
+
+  </div>
+
+  <p id="dollars-output"></p>
+  <p id="quarters-output"></p>
+  <p id="dimes-output"></p>
+  <p id="nickels-output"></p>
+  <p id="pennies-output"></p>
+
+  <script src="main.js"></script>
+</body>
 </html>

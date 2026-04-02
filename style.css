@@ -1,0 +1,181 @@
+/* Main Styles */
+
+body {
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+.screen-display {
+  background: #111;
+  color: #39ff14;
+  font-family: "Courier New", monospace;
+  padding: 15px 20px;
+  border-radius: 8px;
+  text-align: left;
+  letter-spacing: 1px;
+  box-shadow: inset 0 0 10px #000;
+  margin-bottom: 20px;
+
+  font-size: clamp(1rem, 2.5vw, 2rem);
+  line-height: 1.3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.bill-img {
+  width: clamp(80px, 18vw, 180px);
+  height: auto;
+  margin-right: 12px;
+  flex-shrink: 0;
+  animation: pop 0.5s ease-out;
+}
+
+.coin-img {
+  width: clamp(40px, 8vw, 60px);
+  height: auto;
+  margin-right: 12px;
+  flex-shrink: 0;
+  animation: pop 0.5s ease-out;
+}
+
+.slide-in {
+  animation: slideInBox 0.6s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes slideInBox {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in-item {
+  opacity: 0;
+  transform: translateX(-40px);
+  animation: slideInItem 0.6s forwards;
+}
+
+@keyframes slideInItem {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* NASA */
+
+body.nasa {
+  background: #0b0d17;
+  color: #d0d6f9;
+  font-family: "Montserrat", sans-serif;
+}
+
+body.nasa .box {
+  background: #1a1d29;
+  border: 2px solid #3a3f5c;
+  box-shadow: 0 0 20px rgba(0, 150, 255, 0.2);
+}
+
+body.nasa .screen-display {
+  background: linear-gradient(145deg, #000000, #0a0a0a);
+  color: #00eaff;
+  border: 2px solid #1f2a44;
+  text-shadow: 0 0 6px #00eaff;
+  box-shadow:
+    inset 3px 3px 6px rgba(0, 0, 0, 0.6),
+    inset -3px -3px 6px rgba(40, 60, 90, 0.4),
+    0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Retro */
+
+body.retro {
+  background: linear-gradient(135deg, #2b0040, #000000);
+  color: #ff00ff;
+  font-family: "Press Start 2P", monospace;
+}
+
+body.retro .box {
+  background: #1a001f;
+  border: 3px solid #ff00ff;
+  box-shadow: 0 0 15px #ff00ff88;
+}
+
+body.retro .screen-display,
+body.retro .screen-display * {
+  font-family: "Press Start 2P", monospace !important;
+}
+
+body.retro .screen-display {
+  background: #000;
+  color: #39ff14;
+  border: 4px solid #ff00ff;
+  padding: 18px;
+  border-radius: 0;
+  image-rendering: pixelated;
+  position: relative;
+  overflow: hidden;
+  text-shadow: 0 0 8px #39ff14;
+
+  animation: retroPowerOn 0.6s ease-out;
+}
+
+body.retro .screen-display::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0.25) 3px
+  );
+  pointer-events: none;
+}
+
+body.retro .screen-display::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.03);
+  mix-blend-mode: overlay;
+  animation: crtFlicker 0.12s infinite;
+  pointer-events: none;
+}
+
+@keyframes crtFlicker {
+  0% { opacity: 0.15; }
+  50% { opacity: 0.05; }
+  100% { opacity: 0.15; }
+}
+
+@keyframes retroPowerOn {
+  0% {
+    opacity: 0;
+    transform: scaleY(0.05);
+    filter: brightness(400%);
+  }
+  40% {
+    opacity: 1;
+    transform: scaleY(0.2);
+    filter: brightness(200%);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+    filter: brightness(100%);
+  }
+}
+
+#dollars-output,
+#quarters-output,
+#dimes-output,
+#nickels-output,
+#pennies-output {
+  display: none;
+}
